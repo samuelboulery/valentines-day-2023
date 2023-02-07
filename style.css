@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+:root {
+    --text: #95D8FB;
+    --var: #B8ACF9;
+    --tag: #EE7D82;
+    --card: #212336;
+    --background: #191A29;
+    --height: 630px;
+    --width: 460px;
+    --padding: 3em 5em;
+}
+
+html {
+    cursor: url(img/cursor.svg), auto;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+    font-family: 'PT Mono', monospace;
+    background-color: var(--background);
+    background-image: url('img/bg.png');
+    background-size: 1000px;
+}
+
+input#open {
+    display: none;
+}
+
+.open {
+    cursor: url(img/cursor-pointer.svg), auto;
+}
+
+.card {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: .3s;
+    z-index: 1;
+}
+
+.card-front {
+    position: relative;
+    background-color: var(--card);
+    width: var(--width);
+    height: var(--height);
+    transform-origin: left;
+    transition: .3s;
+    z-index: 2;
+    border-radius: 0 12px 12px 0;
+    overflow: hidden;
+}
+
+.card-front:before {
+    content: "";
+    position: absolute;
+    width: var(--width);
+    height: var(--height);
+}
+
+#text {
+    position: relative;
+    background-color: var(--card);
+    width: var(--width);
+    height: var(--height);
+    padding: var(--padding);
+    box-sizing: border-box;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .15), 30px 0 50px rgba(0, 0, 0, 0.3);
+    border-radius: 0 12px 12px 0;
+    overflow: hidden;
+}
+
+.card-inside {
+    position: absolute;
+    background-color: var(--card);
+    width: var(--width);
+    height: var(--height);
+    box-sizing: border-box;
+    padding: var(--padding);
+    z-index: -1;
+    left: 0;
+    top: 0;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.22), 100px 20px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 0 12px 12px 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.open {
+    position: absolute;
+    width: var(--width);
+    height: var(--height);
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    z-index: 6;
+}
+
+#open:checked~.card-front {
+    transform: rotateY(-155deg);
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1);
+}
+
+#open:checked~.card-front:before {
+    z-index: 5;
+    background-color: var(--card);
+    width: var(--width);
+    height: var(--height);
+    top: 0;
+    left: 0;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .1), 30px 0 50px rgba(0, 0, 0, 0.1);
+}
+
+
+#top {
+    margin-bottom: 16em;
+}
+
+.var {
+    color: var(--var);
+}
+
+#heart,
+.tag {
+    color: var(--tag);
+}
+
+.tag span {
+    color: var(--text);
+}
+
+.tag::before {
+    content: "<";
+    color: var(--text);
+}
+
+.tag::after {
+    content: ">";
+    color: var(--text);
+}
+
+#sentence {
+    font-size: 2rem;
+}
+
+.indent {
+    margin-left: 1rem;
+}
+
+
+#kiss-box {
+    position: absolute;
+    inset: 0;
+}
+
+.kiss-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url(img/cursor.svg);
+    background-position: center;
+    background-size: cover;
+}
+
+.kiss {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.giphy-embed {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#easterEgg{
+    position: absolute;
+    height: 100px;
+    width:100px;
+    bottom: 200px;
+    right: 100px;
+    cursor: url(img/cursor-pointer.svg), auto;
+}
